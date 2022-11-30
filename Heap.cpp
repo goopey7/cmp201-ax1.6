@@ -13,6 +13,9 @@ void Heap::heapify(int i)
 	int largest = i;
 	int left = 2*i+1;
 	int right = 2*i+2;
+	Bear* arrI = arr[i];
+	Bear* arrLeft = arr[left];
+	Bear* arrRight = arr[right];
 	if(left <= last_index && arr[left]->hunger > arr[i]->hunger)
 	{
 		largest = left;
@@ -50,7 +53,7 @@ void Heap::resize()
 	// unassessed (look back to ArrayStacks and ArrayQueues, W4)
 	size = size * 2;
 	Bear** newArr = new Bear*[size]();
-	for (int i = 0; i < last_index; i++) newArr[i] = arr[i];
+	for (int i = 0; i <= last_index; i++) newArr[i] = arr[i];
 	delete arr;
 	arr = newArr;
 }
@@ -120,7 +123,7 @@ int main()
 	// provided, templated.
 	srand(time(NULL));	// set random seed
 
-	int num_bears = 10;												// TODO: Muck about with this to test resize(). 
+	int num_bears = 30;												// TODO: Muck about with this to test resize(). 
 
 
 	Bear* b = new Bear("Important Barry", 200);						// Point to hungry Barry.
