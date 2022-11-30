@@ -51,6 +51,7 @@ void Heap::resize()
 	size = size * 2;
 	Bear** newArr = new Bear*[size]();
 	for (int i = 0; i < last_index; i++) newArr[i] = arr[i];
+	delete arr;
 	arr = newArr;
 }
 
